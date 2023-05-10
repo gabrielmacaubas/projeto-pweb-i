@@ -1,0 +1,23 @@
+<mat-card class="card-insercao-estoque">
+  <mat-card-header class="card-header">
+    <mat-card-title>Cadastro</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+		<mat-form-field appearance="fill" class="mat-form-simples">
+			<mat-label>Input</mat-label>
+			<input matInput [(ngModel)]="estoque.nome">
+		</mat-form-field>
+		<mat-form-field appearance="fill" class="mat-form-simples">
+			<mat-label>Textarea</mat-label>
+			<input matInput [(ngModel)]="estoque.capacidade">
+		</mat-form-field>
+		{{ estoque.nome }}
+		{{ estoque.capacidade }}
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-footer align="center">
+    <button mat-fab class="cadastro-button" (click)="inserirEstoque()">
+			<mat-icon>add</mat-icon>
+		</button>
+  </mat-card-footer>
+</mat-card>
