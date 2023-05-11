@@ -1,0 +1,48 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>StockAqui</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<mat-drawer-container class="example-container" autosize toggle>
+	<mat-drawer #drawer class="example-sidenav" mode="side" opened>
+		<app-sidebar></app-sidebar>
+	</mat-drawer>
+	<h1>Estoques</h1>	
+    <div class="example-sidenav-content">	
+
+		<mat-card *ngFor="let estoque of estoques" class="example-card">
+			<mat-card-header>
+				<mat-card-subtitle>Estoque</mat-card-subtitle>
+				<mat-card-title>{{ estoque.nome }}</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				<p>{{ estoque.descricao }}</p>
+				<mat-divider></mat-divider>
+			</mat-card-content>
+			<mat-card-actions>
+				<button mat-icon-button>
+					<mat-icon color="primary">delete</mat-icon>
+				</button>
+				
+				<button mat-icon-button>
+					<mat-icon color="primary">edit</mat-icon>
+				</button>
+				<span class="example-spacer"></span>
+				<h1>{{ estoque.ocupacao }}/{{ estoque.capacidade }}</h1>
+			</mat-card-actions>
+			<mat-card-footer>
+			</mat-card-footer>
+		</mat-card>	
+  </div>
+</mat-drawer-container>
+<mat-divider></mat-divider>

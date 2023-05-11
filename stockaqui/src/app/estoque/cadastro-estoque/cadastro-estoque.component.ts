@@ -12,11 +12,11 @@ export class CadastroEstoqueComponent {
   estoque: Estoque;
 
   constructor() {
-    this.estoque = new Estoque(null, null);
+    this.estoque = new Estoque("a", 25);
   }
 
   inserirEstoque() {
     console.log(this.estoque);
-    this.estoque = new Estoque(null, null);
+    this.estoque = new Estoque("a", 25);
   }
 }

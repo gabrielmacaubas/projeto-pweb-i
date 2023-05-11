@@ -1,0 +1,8 @@
+.container-bar {
+    display:flex;
+    margin: 50px 1px;
+}
+
+.search {
+    width: 100px;
+}

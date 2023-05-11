@@ -1,0 +1,13 @@
+.mat-footer {
+    padding: 1px;
+}
+  
+.mat-footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-footer-content {
+    text-align: center;
+}
