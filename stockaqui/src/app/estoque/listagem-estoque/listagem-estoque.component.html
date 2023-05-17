@@ -10,11 +10,11 @@
         </mat-card-content>
         <mat-card-actions>
             <button mat-icon-button>
-                <mat-icon color="primary">delete</mat-icon>
-            </button>			
-            <button mat-icon-button>
                 <mat-icon color="primary">edit</mat-icon>
             </button>
+            <button mat-icon-button (click)="remover(estoque)">
+                <mat-icon color="primary">delete</mat-icon>
+            </button>			
             <span class="example-spacer"></span>
             <h1 style="padding-top:25px">{{ estoque.ocupacao }}/{{ estoque.capacidade }}</h1>
         </mat-card-actions>

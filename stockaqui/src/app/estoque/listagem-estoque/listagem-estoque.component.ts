@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Estoque } from 'src/app/shared/model/estoque'
+import { Estoque } from 'src/app/shared/model/estoque';
+import { ESTOQUES } from 'src/app/shared/model/ESTOQUES';
 
 @Component({
   selector: 'app-listagem-estoque',
@@ -7,10 +8,15 @@ import { Estoque } from 'src/app/shared/model/estoque'
   styleUrls: ['./listagem-estoque.component.css']
 })
 export class ListagemEstoqueComponent {
-  title = 'stockaqui';
-  estoques: Estoque[];
+    estoques: Estoque[];
 
-  constructor() {
-    this.estoques = [new Estoque("Alimentos", 25), new Estoque("Produtos", 50), new Estoque("Medicamentos", 75)];
-  }
+    constructor() {
+        this.estoques = ESTOQUES;
+    }
+
+    remover(estoqueRemovido: Estoque): void {
+        const index: number = this.estoques.findIndex(estoque => estoque.nome == estoqueRemovido.nome);
+
+        this.estoques.splice(index, 1);
+    }
 }

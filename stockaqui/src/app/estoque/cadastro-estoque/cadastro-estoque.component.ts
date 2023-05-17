@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Estoque } from '../../shared/model/estoque';
+import { ESTOQUES } from '../../shared/model/ESTOQUES';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-cadastro-estoque',
@@ -9,14 +11,21 @@ import { Estoque } from '../../shared/model/estoque';
 
 
 export class CadastroEstoqueComponent {
-  estoque: Estoque;
+    estoque: Estoque;
+    estoques: Estoque[];
 
-  constructor() {
-    this.estoque = new Estoque("a", 25);
-  }
+    constructor() {
+        this.estoque = new Estoque(null, null, null);
+        this.estoques = ESTOQUES;
+    }
 
-  inserirEstoque() {
-    console.log(this.estoque);
-    this.estoque = new Estoque("a", 25);
-  }
+    ngOnInit(): void {
+
+    }
+
+    inserirEstoque(): void {
+        this.estoques.push(this.estoque);
+        this.estoque = new Estoque(null, null, null);
+        console.log(ESTOQUES);
+    }
 }

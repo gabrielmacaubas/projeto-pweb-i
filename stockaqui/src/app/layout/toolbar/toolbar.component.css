@@ -25,3 +25,11 @@
     max-width: 400px;
     margin: 5px;
 }
+
+.logo {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}

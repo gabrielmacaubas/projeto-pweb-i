@@ -7,5 +7,5 @@ import { Estoque } from './shared/model/estoque';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+    title = 'stockaqui';
 }

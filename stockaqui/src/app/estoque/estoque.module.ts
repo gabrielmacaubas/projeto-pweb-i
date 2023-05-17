@@ -6,8 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.co
     MatIconModule,
     MatButtonModule,
     FormsModule,
+    MatInputModule
   ]
 })
 export class EstoqueModule { }
