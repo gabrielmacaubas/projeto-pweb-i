@@ -3,3 +3,47 @@
     display:grid;
     justify-content: center;
 }
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    border: 1px 0 solid rgba(0, 0, 0, 0.5);
+}
+
+.button-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-sidenav-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: flex-start;
+    justify-content:space-between;
+}
+
+.example-sidenav {
+    padding: 0 20px;
+
+}
+
+.example-card {
+    max-width: 400px;
+    margin: 5px;
+}
+
+.logo {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    margin-right: 220px;
+}

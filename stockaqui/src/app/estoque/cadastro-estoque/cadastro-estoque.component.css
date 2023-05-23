@@ -1,3 +1,25 @@
 mat-form-field {
     margin: 0 5px;
 }
+
+.example-card {
+    max-width: 260px;
+    margin: 5px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.cards-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 100%;
+    align-items: center;
+    justify-content:center;
+}
+
+.button-add {
+    display: flex;
+    justify-content: center;
+}

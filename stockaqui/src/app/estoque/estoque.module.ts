@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatIconModule,
     MatButtonModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    RouterLink
   ]
 })
 export class EstoqueModule { }

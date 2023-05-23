@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,11 +11,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { EstoqueModule } from '../estoque/estoque.module';
+import { RouterLink } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    ToolbarComponent,
     SidebarComponent,
     ContentComponent,
     FooterComponent
@@ -30,10 +29,10 @@ import { EstoqueModule } from '../estoque/estoque.module';
     MatCardModule,
     MatDividerModule,
     MatFormFieldModule,
-    EstoqueModule
+    EstoqueModule,
+    RouterLink
   ],
   exports: [
-    ToolbarComponent,
     SidebarComponent,
     ContentComponent,
     FooterComponent

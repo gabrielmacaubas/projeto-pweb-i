@@ -1,2 +1,39 @@
-<app-toolbar></app-toolbar>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+      (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <a class="logo" href="">
+      <span class="example-spacer"></span>
+      <img style="width: 60px;" src="assets/img/logo.png">
+      <span>StockAqui</span>
+    </a>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+<mat-drawer-container class="example-container" autosize toggle>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <div class="content">
+    <div class="button-add">
+      <button [routerLink]="['cadastroestoque']" mat-button mat-raised-button style="margin:10px">
+        <mat-icon color="primary">add</mat-icon>
+        <span>Adicionar Estoque</span>
+      </button>
+    </div>
+    <div class="example-sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
+<mat-divider></mat-divider>
 <app-footer></app-footer>

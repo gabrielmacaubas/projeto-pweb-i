@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Estoque } from '../../shared/model/estoque';
 import { ESTOQUES } from '../../shared/model/ESTOQUES';
-import { ThisReceiver } from '@angular/compiler';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-estoque',
@@ -11,21 +11,42 @@ import { ThisReceiver } from '@angular/compiler';
 
 
 export class CadastroEstoqueComponent {
-    estoque: Estoque;
-    estoques: Estoque[];
+  estoqueDeManutencao: Estoque;
+  estahCadastrando = true;
+  nomeBotaoManutencao = 'Cadastrar';
+  estoques = ESTOQUES;
 
-    constructor() {
-        this.estoque = new Estoque(null, null, null);
-        this.estoques = ESTOQUES;
+  constructor(private rotaAtual: ActivatedRoute, private roteador: Router) {
+    this.estoqueDeManutencao = new Estoque(null, null, null);
+    const nomeParaEdicao = this.rotaAtual.snapshot.paramMap.get('nome');
+
+    if (nomeParaEdicao) {
+      const estoqueEncontrado = this.estoques.find(
+        estoque => estoque.nome === nomeParaEdicao
+      );
+
+      if (estoqueEncontrado) {
+        this.estahCadastrando = false;
+        this.nomeBotaoManutencao = 'Salvar';
+        this.estoqueDeManutencao = estoqueEncontrado;
+      } else {
+            this.nomeBotaoManutencao = 'Cadastrar';
+      }
+    }
+  }
+
+  ngOnInit(): void {
+        
+  }
+      
+  manter(): void {
+    if (this.estahCadastrando && this.estoqueDeManutencao) {
+        this.estoques.push(this.estoqueDeManutencao);
     }
 
-    ngOnInit(): void {
-
-    }
-
-    inserirEstoque(): void {
-        this.estoques.push(this.estoque);
-        this.estoque = new Estoque(null, null, null);
-        console.log(ESTOQUES);
-    }
+    this.estoqueDeManutencao = new Estoque(null, null, null);
+    this.nomeBotaoManutencao = 'Cadastrar';
+    this.roteador.navigate(['listagemestoque']);
+  }
+    
 }
