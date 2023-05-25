@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class EstoqueService {
-  URL_ESTOQUES = 'http://localhost:3000/estoques';
+  URL_ESTOQUES = 'https://json-server-pweb.gabrielmacaubas.repl.co/estoques';
   
   constructor(private httpClient: HttpClient) { }
 
