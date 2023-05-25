@@ -7,6 +7,7 @@ import { EstoqueService } from 'src/app/shared/services/estoque.service';
   templateUrl: './listagem-estoque.component.html',
   styleUrls: ['./listagem-estoque.component.css']
 })
+
 export class ListagemEstoqueComponent {
   estoques: Estoque[];
 
@@ -21,7 +22,8 @@ export class ListagemEstoqueComponent {
   }
 
   remover(estoqueRemovido: Estoque): void {
-    this.estoqueService.remover(estoqueRemovido).subscribe();
-    window.location.reload();
+    this.estoqueService.remover(estoqueRemovido).subscribe(
+      retorno => window.location.reload()
+    );
   }
 }
