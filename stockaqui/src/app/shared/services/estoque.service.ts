@@ -16,8 +16,8 @@ export class EstoqueService {
     return this.httpClient.get<Estoque[]>(this.URL_ESTOQUES);
   }
 
-  encontrar(nomeParaEdicao: string): Observable<Estoque> {
-    return this.httpClient.get<Estoque>(`${this.URL_ESTOQUES}/${nomeParaEdicao}`)
+  encontrar(idParaEdicao: string): Observable<Estoque> {
+    return this.httpClient.get<Estoque>(`${this.URL_ESTOQUES}/${idParaEdicao}`)
   }
 
   inserir(estoque: Estoque): Observable<Estoque> {
@@ -36,7 +36,7 @@ export class EstoqueService {
 
   remover(estoqueRemovido: Estoque): Observable<Estoque> {
     if (estoqueRemovido) {
-      return this.httpClient.delete<Estoque>(`${this.URL_ESTOQUES}/${estoqueRemovido.id}`)
+      return this.httpClient.delete<Estoque>(`${this.URL_ESTOQUES}/${estoqueRemovido.id}`);
     }
 
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
