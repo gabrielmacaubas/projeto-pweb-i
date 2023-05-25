@@ -3,9 +3,8 @@ export class Estoque {
     capacidade: number | null;
     descricao: string | null;
     ocupacao: number;
-    quantidade: any;
 
-    constructor(fnome: string | null, fdescricao:string | null, fcapacidade: number | null) {
+    constructor(fnome: string | null, fdescricao:string | null, fcapacidade: number | null, public id?: number) {
         this.nome = fnome;
         this.capacidade = fcapacidade;
         this.descricao = fdescricao;

@@ -1,0 +1,25 @@
+{
+  "estoques": [
+    {
+      "id": 1,
+      "nome": "Alimentos",
+      "capacidade": "255",
+      "descricao": "Lorem lorem lorem Lorem lorem lorem Lorem lorem loremLorem lorem lorem Lorem lorem lorem Lorem lorem lorem",
+      "ocupacao": 0
+    },
+    {
+      "id": 2,
+      "nome": "Medicamentos",
+      "capacidade": "500",
+      "descricao": "Lorem lorem lorem Lorem lorem lorem Lorem lorem loremLorem lorem lorem Lorem lorem lorem Lorem lorem lorem",
+      "ocupacao": 0
+    },
+    {
+      "nome": "Produtos",
+      "capacidade": "10",
+      "descricao": "Lorem lorem lorem Lorem lorem lorem Lorem lorem loremLorem lorem lorem Lorem lorem lorem Lorem lorem lorem",
+      "ocupacao": 0,
+      "id": 3
+    }
+  ]
+}

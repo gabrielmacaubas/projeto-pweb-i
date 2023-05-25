@@ -5,20 +5,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { EstoqueModule } from '../estoque/estoque.module';
 import { RouterLink } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    ContentComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -34,8 +34,8 @@ import { RouterLink } from '@angular/router';
   ],
   exports: [
     SidebarComponent,
-    ContentComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ]
 })
 export class LayoutModule { }

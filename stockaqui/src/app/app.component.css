@@ -13,12 +13,6 @@
     border: 1px 0 solid rgba(0, 0, 0, 0.5);
 }
 
-.button-add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .example-sidenav-content {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -47,3 +41,9 @@
 .content {
     margin-right: 220px;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  

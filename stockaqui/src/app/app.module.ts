@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { EstoqueService } from './shared/services/estoque.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -27,8 +29,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatDividerModule,
     MatButtonModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    EstoqueService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

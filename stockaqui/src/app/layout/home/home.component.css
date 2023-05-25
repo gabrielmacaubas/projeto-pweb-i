@@ -1,0 +1,27 @@
+.home-page {
+    background-image: url('../../../assets/img/fundo2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 175vh;
+    height: 100vh;
+}
+
+.title {
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub-title {
+    position: absolute;
+    top: 30%;
+    left: 34%;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 300px;
+}

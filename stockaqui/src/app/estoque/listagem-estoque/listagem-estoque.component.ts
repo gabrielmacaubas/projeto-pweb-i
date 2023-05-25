@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Estoque } from 'src/app/shared/model/estoque';
-import { ESTOQUES } from 'src/app/shared/model/ESTOQUES';
+import { EstoqueService } from 'src/app/shared/services/estoque.service';
 
 @Component({
   selector: 'app-listagem-estoque',
@@ -8,15 +8,20 @@ import { ESTOQUES } from 'src/app/shared/model/ESTOQUES';
   styleUrls: ['./listagem-estoque.component.css']
 })
 export class ListagemEstoqueComponent {
-    estoques: Estoque[];
+  estoques: Estoque[];
 
-    constructor() {
-        this.estoques = ESTOQUES;
-    }
+  constructor(private estoqueService: EstoqueService) {
+    this.estoques = [];
+  }
 
-    remover(estoqueRemovido: Estoque): void {
-        const index: number = this.estoques.findIndex(estoque => estoque.nome == estoqueRemovido.nome);
+  ngOnInit() {
+    this.estoqueService.listar().subscribe(
+      estoquesRetornados => this.estoques = estoquesRetornados
+    );
+  }
 
-        this.estoques.splice(index, 1);
-    }
+  remover(estoqueRemovido: Estoque): void {
+    this.estoqueService.remover(estoqueRemovido).subscribe();
+    window.location.reload();
+  }
 }

@@ -1,3 +1,7 @@
+<button routerLink="/cadastroestoque" mat-button mat-raised-button style="margin:10px">
+  <mat-icon color="primary">add</mat-icon>
+  <span>Adicionar Estoque</span>
+</button>
 <div class="cards-container">
   <mat-card *ngFor="let estoque of estoques" class="example-card">
     <mat-card-header>
@@ -9,7 +13,7 @@
       <mat-divider></mat-divider>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-icon-button [routerLink]="['/editaestoque', estoque.nome]">
+      <button mat-icon-button [routerLink]="['/editaestoque', estoque.id]">
         <mat-icon color="primary">edit</mat-icon>
       </button>
       <button mat-icon-button (click)="remover(estoque)">

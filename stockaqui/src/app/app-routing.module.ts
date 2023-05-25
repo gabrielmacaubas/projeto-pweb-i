@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroEstoqueComponent } from './estoque/cadastro-estoque/cadastro-estoque.component';
 import { ListagemEstoqueComponent } from './estoque/listagem-estoque/listagem-estoque.component';
+import { HomeComponent } from './layout/home/home.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
     component: ListagemEstoqueComponent
   },
   {
-    path: 'editaestoque/:nome',
+    path: 'editaestoque/:id',
     component: CadastroEstoqueComponent
+  },
+  {
+    path: '',
+    component: HomeComponent
   }
 ];
 
