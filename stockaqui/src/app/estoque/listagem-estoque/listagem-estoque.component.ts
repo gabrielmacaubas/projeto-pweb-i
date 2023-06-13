@@ -8,6 +8,7 @@ import { EstoqueService } from 'src/app/shared/services/estoque.service';
   styleUrls: ['./listagem-estoque.component.css']
 })
 
+
 export class ListagemEstoqueComponent {
   estoques: Estoque[];
 
