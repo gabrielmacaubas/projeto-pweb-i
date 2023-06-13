@@ -19,7 +19,8 @@
     </mat-card-content>
     <mat-card-actions class="button-add">
       <button mat-fab color="primary" (click)="manter()">
-        <mat-icon>add</mat-icon>
+        <mat-icon *ngIf="estahCadastrando">add</mat-icon>
+        <mat-icon *ngIf="!estahCadastrando">edit</mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>	

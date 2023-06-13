@@ -27,6 +27,7 @@ export class EstoqueService {
       }
     }
 
+    alert("Estoque Inválido!");
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
   }
 
@@ -39,6 +40,7 @@ export class EstoqueService {
       return this.httpClient.delete<Estoque>(`${this.URL_ESTOQUES}/${estoqueRemovido.id}`);
     }
 
+    alert("Erro ao excluir!");
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
   }
 }

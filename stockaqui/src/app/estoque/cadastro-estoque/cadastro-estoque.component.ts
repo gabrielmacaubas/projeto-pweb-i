@@ -38,14 +38,9 @@ export class CadastroEstoqueComponent {
       
   manter(): void {
     if (this.estahCadastrando && this.estoqueDeManutencao) {
-        this.estoqueService.inserir(this.estoqueDeManutencao).subscribe(
-          retorno => window.location.reload()
-        );
-
+      this.estoqueService.inserir(this.estoqueDeManutencao).subscribe();
     } else {
-      this.estoqueService.atualizar(this.estoqueDeManutencao).subscribe(
-        retorno => window.location.reload()
-      );
+      this.estoqueService.atualizar(this.estoqueDeManutencao).subscribe();
     }
 
     this.estoqueDeManutencao = new Estoque(null, null, null);

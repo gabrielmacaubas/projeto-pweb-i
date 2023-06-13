@@ -23,7 +23,12 @@ export class ListagemEstoqueComponent {
 
   remover(estoqueRemovido: Estoque): void {
     this.estoqueService.remover(estoqueRemovido).subscribe(
-      retorno => window.location.reload()
+      resposta => {
+        const indxEstoqueARemover = this.estoques.findIndex(estoque => estoque.id === estoqueRemovido.id);
+        if (indxEstoqueARemover > -1) {
+          this.estoques.splice(indxEstoqueARemover, 1)
+        }
+      }
     );
   }
 }
