@@ -2,11 +2,17 @@
   <mat-icon color="primary">add</mat-icon>
   <span>Adicionar Estoque</span>
 </button>
+<!--
+<mat-form-field>
+  <mat-label>Filtro</mat-label>
+  <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
+</mat-form-field>
+-->
 <div class="cards-container">
   <mat-card *ngFor="let estoque of estoques" class="example-card">
     <mat-card-header>
       <mat-card-subtitle>Estoque</mat-card-subtitle>
-      <mat-card-title>{{ estoque.nome }}</mat-card-title>
+      <mat-card-title class="titulo" [routerLink]="['/listagemproduto/', estoque.id]">{{ estoque.nome }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <p>{{ estoque.descricao }}</p>

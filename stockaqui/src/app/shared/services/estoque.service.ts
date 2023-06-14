@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Estoque } from '../model/estoque';
+import { Produto } from '../model/produto';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -29,6 +30,14 @@ export class EstoqueService {
 
     alert("Estoque Inválido!");
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
+  }
+
+  inserirProduto(produto: Produto): Observable<Produto> {
+    if (produto.nome && produto.valor && produto.descricao) {
+      if (!Number.isNaN(Number(produto.valor)) && Number(produto.valor) > 0) {
+        return this.httpClient.post<Produto>(this.URL_ESTOQUES, produto);
+      }
+    }  
   }
 
   atualizar(estoque: Estoque): Observable<Estoque> {

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroEstoqueComponent } from './estoque/cadastro-estoque/cadastro-estoque.component';
+import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-produto.component';
 import { ListagemEstoqueComponent } from './estoque/listagem-estoque/listagem-estoque.component';
+import { ListagemProdutoComponent } from './produto/listagem-produto/listagem-produto.component';
 import { HomeComponent } from './layout/home/home.component';
 
 const routes: Routes = [
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'listagemproduto/:id',
+    component: ListagemProdutoComponent
+  },
+  {
+    path: 'listagemproduto/:id/cadastroproduto',
+    component: CadastroProdutoComponent
   }
 ];
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Estoque } from 'src/app/shared/model/estoque';
 import { EstoqueService } from 'src/app/shared/services/estoque.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-listagem-estoque',
@@ -31,5 +32,9 @@ export class ListagemEstoqueComponent {
         }
       }
     );
+  }
+
+  teste():void {
+    console.log("oi");
   }
 }

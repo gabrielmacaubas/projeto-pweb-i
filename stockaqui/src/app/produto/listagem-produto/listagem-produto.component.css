@@ -1,0 +1,7 @@
+mat-table, mat-form-field {
+    width: 500px;
+}
+
+mat-header-cell {
+    font-weight: bold;
+}
