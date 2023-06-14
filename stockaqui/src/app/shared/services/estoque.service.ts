@@ -32,6 +32,7 @@ export class EstoqueService {
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
   }
 
+  /*
   inserirProduto(produto: Produto): Observable<Produto> {
     if (produto.nome && produto.valor && produto.descricao) {
       if (!Number.isNaN(Number(produto.valor)) && Number(produto.valor) > 0) {
@@ -39,6 +40,7 @@ export class EstoqueService {
       }
     }  
   }
+  */
 
   atualizar(estoque: Estoque): Observable<Estoque> {
     return this.httpClient.put<Estoque>(`${this.URL_ESTOQUES}/${estoque.id}`, estoque);

@@ -36,11 +36,13 @@ export class CadastroProdutoComponent {
   }
       
   manter(): void {
+    /*
     if (this.estahCadastrando && this.produtoDeManutencao) {
       this.estoqueService.inserirProduto(this.produtoDeManutencao).subscribe();
     } else {
       this.estoqueService.atualizarProduto(this.produtoDeManutencao).subscribe();
     }
+    */
 
     this.produtoDeManutencao = new Produto(null, null, null);
     this.nomeBotaoManutencao = 'Cadastrar';

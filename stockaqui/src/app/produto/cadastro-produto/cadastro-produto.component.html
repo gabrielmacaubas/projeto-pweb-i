@@ -1,18 +1,21 @@
 <div class="cards-container">
     <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Cadastrar Produto</mat-card-title>
+      </mat-card-header>
       <mat-card-content>
           <mat-form-field hintLabel="Máx 20 caracteres">
             <mat-label>Nome</mat-label>
-            <input matInput #inputNome maxlength="20" placeholder="Ex.: Banana" [(ngModel)]="estoqueDeManutencao.nome">
+            <input matInput #inputNome maxlength="20" placeholder="Ex.: Banana" [(ngModel)]="produtoDeManutencao.nome">
             <mat-hint align="end">{{inputNome.value.length}}/20</mat-hint>
           </mat-form-field>
           <mat-form-field hintLabel="Máx 100">
-            <mat-label>Capacidade</mat-label>
-            <input matInput #input maxlength="3" [(ngModel)]="estoqueDeManutencao.capacidade">
+            <mat-label>Valor</mat-label>
+            <input matInput #input maxlength="3" placeholder="R$" [(ngModel)]="produtoDeManutencao.valor">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Descrição</mat-label>
-            <input matInput #inputDescricao maxlength="150" placeholder="Ex.: Lorem Ipsum" [(ngModel)]="estoqueDeManutencao.descricao">
+            <input matInput #inputDescricao maxlength="150" placeholder="Ex.: Lorem Ipsum" [(ngModel)]="produtoDeManutencao.descricao">
             <mat-hint align="end">{{inputDescricao.value.length}}/150</mat-hint>
           </mat-form-field>
           <mat-divider></mat-divider>
