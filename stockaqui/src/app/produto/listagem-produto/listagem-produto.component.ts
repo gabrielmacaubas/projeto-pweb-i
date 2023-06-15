@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Produto } from '../../shared/model/produto';
-import { EstoqueService } from 'src/app/shared/services/estoque.service';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,21 +14,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListagemProdutoComponent implements OnInit {
   dataSource: MatTableDataSource<Produto>;
   mostrarColunas = ['nome', 'valor', 'descricao', 'acoes'];
-  estoqueId?: string;
 
-  constructor(private estoqueService: EstoqueService, private rotaAtual: ActivatedRoute, private roteador: Router) {
+  constructor(private produtoService: ProdutoService, private rotaAtual: ActivatedRoute, private roteador: Router) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
-    if (this.rotaAtual.snapshot.paramMap.has('id')) {
-      const id = this.rotaAtual.snapshot.paramMap.get('id');
-
+    if (this.rotaAtual.snapshot.paramMap.has('idestoque')) {
+      const id = this.rotaAtual.snapshot.paramMap.get('idestoque');
+      
       if (id) {
-        this.estoqueId = id;
-        this.estoqueService.encontrar(id).subscribe(
-          estoque => {
-            this.dataSource = new MatTableDataSource(estoque.produtos);
+        this.produtoService.encontrarPorEstoque(id).subscribe(
+          produtos => {
+            this.dataSource = new MatTableDataSource(produtos);
           }
         )
       }
@@ -37,5 +35,20 @@ export class ListagemProdutoComponent implements OnInit {
 
   filtrar(texto: string): void {
     this.dataSource.filter = texto.trim().toLowerCase();
+  }
+
+  remover(produtoRemovido: Produto): void {
+    this.produtoService.remover(produtoRemovido).subscribe(
+      resposta => {
+        const indxEstoqueARemover = this.dataSource.data.findIndex(
+          produto => produto.id === produtoRemovido.id
+        );
+
+        if (indxEstoqueARemover > -1) {
+          this.dataSource.data.splice(indxEstoqueARemover, 1);
+          this.dataSource = new MatTableDataSource<Produto>(this.dataSource.data);
+        }
+      }
+    )
   }
 }

@@ -33,8 +33,4 @@ export class ListagemEstoqueComponent {
       }
     );
   }
-
-  teste():void {
-    console.log("oi");
-  }
 }

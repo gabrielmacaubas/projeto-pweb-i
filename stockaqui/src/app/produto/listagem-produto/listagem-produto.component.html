@@ -32,11 +32,11 @@
   <ng-container matColumnDef="acoes">
     <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
     <mat-cell *matCellDef="let item">
-      <button mat-icon-button>
+      <button mat-icon-button [routerLink]="['editaproduto/', item.id]">
         <mat-icon color="primary">edit</mat-icon>
       </button>
-      <button mat-icon-button>
-        <mat-icon color="primary" >delete</mat-icon>
+      <button mat-icon-button (click)="remover(item)">
+        <mat-icon color="primary">delete</mat-icon>
       </button>
     </mat-cell>
   </ng-container>

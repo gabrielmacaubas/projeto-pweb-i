@@ -25,11 +25,15 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'listagemproduto/:id',
+    path: 'listagemproduto/:idestoque',
     component: ListagemProdutoComponent
   },
   {
-    path: 'listagemproduto/:id/cadastroproduto',
+    path: 'listagemproduto/:idestoque/cadastroproduto',
+    component: CadastroProdutoComponent
+  },
+  {
+    path: 'listagemproduto/:idestoque/editaproduto/:idproduto',
     component: CadastroProdutoComponent
   }
 ];

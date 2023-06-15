@@ -35,17 +35,29 @@ export class CadastroEstoqueComponent {
 
   ngOnInit(): void { 
   }
-      
-  manter(): void {
-    if (this.estahCadastrando && this.estoqueDeManutencao) {
-      this.estoqueService.inserir(this.estoqueDeManutencao).subscribe();
-    } else {
-      this.estoqueService.atualizar(this.estoqueDeManutencao).subscribe();
-    }
 
+  manterAux(): void {
     this.estoqueDeManutencao = new Estoque(null, null, null);
     this.nomeBotaoManutencao = 'Cadastrar';
     this.roteador.navigate(['listagemestoque']);
+  }
+      
+  manter(): void {
+    if (this.estahCadastrando && this.estoqueDeManutencao) {
+      this.estoqueService.inserir(this.estoqueDeManutencao).subscribe(
+        retorno => {
+          this.manterAux();
+        }
+      );
+    } else {
+      this.estoqueService.atualizar(this.estoqueDeManutencao).subscribe(
+        retorno => {
+          this.manterAux();
+        }
+      );
+    }
+
+
   }
     
 }
