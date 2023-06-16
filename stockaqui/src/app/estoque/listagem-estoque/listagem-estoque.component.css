@@ -1,7 +1,10 @@
 .example-card {
     width: 400px;
-    height: 252px;
     margin: 5px;
+}
+
+mat-card-content {
+    height: 93px;
 }
 
 .example-spacer {
@@ -17,3 +20,4 @@
 }
 
 .example-card { cursor: pointer; }
+
