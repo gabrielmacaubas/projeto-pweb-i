@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstoqueModule } from './estoque/estoque.module';
 import { ProdutoModule } from './produto/produto.module';
+import { FirestoreModule } from './firestore/firestore.module';
 import { LayoutModule } from './layout/layout.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatDividerModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FirestoreModule,
   ],
   providers: [
     EstoqueService,

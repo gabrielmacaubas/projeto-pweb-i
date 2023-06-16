@@ -17,7 +17,7 @@ export class CadastroEstoqueComponent {
 
 
   constructor(private rotaAtual: ActivatedRoute, private roteador: Router, private estoqueService: EstoqueService) {
-    this.estoqueDeManutencao = new Estoque(null, null, null);
+    this.estoqueDeManutencao = new Estoque();
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('id');
 
     if (idParaEdicao) {
@@ -37,7 +37,7 @@ export class CadastroEstoqueComponent {
   }
 
   manterAux(): void {
-    this.estoqueDeManutencao = new Estoque(null, null, null);
+    this.estoqueDeManutencao = new Estoque();
     this.nomeBotaoManutencao = 'Cadastrar';
     this.roteador.navigate(['listagemestoque']);
   }
