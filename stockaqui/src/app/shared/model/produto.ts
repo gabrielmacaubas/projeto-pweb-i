@@ -1,13 +1,15 @@
 export class Produto {
-    nome: string | null;
-    valor: number | null;
-    descricao: string | null;
-    fk_estoque: number | null;
+    id?: string;
+    nome = '';
+    valor: number;
+    descricao = '';
+    fk_estoque = '';
 
-    constructor(fnome: string | null, fvalor: number | null, fdescricao:string | null, fk: number, public id?: number) {
-        this.nome = fnome;
-        this.valor = fvalor;
-        this.descricao = fdescricao;
-        this.fk_estoque = fk;
+    constructor(id?: string, produto: Produto = {nome: '', valor: 0, descricao: '', fk_estoque: ''}) {
+        this.id = id;
+        this.nome = produto.nome;
+        this.valor = produto.valor;
+        this.descricao = produto.descricao;
+        this.fk_estoque = produto.fk_estoque;
     }
 }

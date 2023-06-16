@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {from, Observable} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { Estoque } from '../model/estoque';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
 import {map} from 'rxjs/operators';
@@ -13,9 +12,8 @@ import {map} from 'rxjs/operators';
 export class EstoqueService {
   colecaoEstoques: AngularFirestoreCollection<Estoque>;
   NOME_COLECAO = 'estoques';
-  URL_ESTOQUES = 'https://json-server-pweb.gabrielmacaubas.repl.co/estoques';
   
-  constructor(private afs: AngularFirestore, private httpClient: HttpClient) { 
+  constructor(private afs: AngularFirestore) { 
     this.colecaoEstoques = afs.collection(this.NOME_COLECAO);
   }
 
@@ -25,7 +23,10 @@ export class EstoqueService {
 
   encontrar(idParaEdicao: string): Observable<Estoque> {
     return this.colecaoEstoques.doc(idParaEdicao).get().pipe(map(
-      document => new Estoque(document.id, document.data())
+      document => {
+        console.log(document.data());
+        return new Estoque(document.id, document.data());
+      }
     ));
   }
 

@@ -5,11 +5,11 @@
 
 <div class="cards-container">
   <mat-card *ngFor="let estoque of estoques" class="example-card">
-    <mat-card-header>
+    <mat-card-header [routerLink]="['/listagemproduto/', estoque.id]">
       <mat-card-subtitle>Estoque</mat-card-subtitle>
-      <mat-card-title class="titulo" [routerLink]="['/listagemproduto/', estoque.id]">{{ estoque.nome }}</mat-card-title>
+      <mat-card-title class="titulo" >{{ estoque.nome }}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content [routerLink]="['/listagemproduto/', estoque.id]">
       <p>{{ estoque.descricao }}</p>
       <mat-divider></mat-divider>
     </mat-card-content>
@@ -21,7 +21,7 @@
         <mat-icon color="primary">delete</mat-icon>
       </button>
       <span class="example-spacer"></span>
-      <h1 style="padding-top:25px">{{ estoque.ocupacao }}/{{ estoque.capacidade }}</h1>
+      <h1 style="padding-top:25px" [routerLink]="['/listagemproduto/', estoque.id]">{{ estoque.ocupacao }}/{{ estoque.capacidade }}</h1>
     </mat-card-actions>
   </mat-card>
 </div>

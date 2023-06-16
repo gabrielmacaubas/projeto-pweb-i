@@ -6,7 +6,7 @@
   <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
 </mat-form-field>
 
-<button mat-fab style="margin:10px" color="primary">
+<button mat-fab style="margin:10px" color="primary" [routerLink]="['cadastroproduto/']">
   <mat-icon >add</mat-icon>
 </button>
 

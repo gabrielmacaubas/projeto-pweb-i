@@ -19,7 +19,9 @@ export class ListagemEstoqueComponent {
 
   ngOnInit() {
     this.estoqueService.listar().subscribe(
-      estoquesRetornados => this.estoques = estoquesRetornados
+      estoquesRetornados => {
+        this.estoques = estoquesRetornados;
+      }
     );
   }
 

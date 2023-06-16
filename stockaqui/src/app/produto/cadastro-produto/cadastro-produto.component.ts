@@ -19,7 +19,11 @@ export class CadastroProdutoComponent {
   constructor(private rotaAtual: ActivatedRoute, private roteador: Router, private produtoService: ProdutoService) {
     this.idEstoque = this.rotaAtual.snapshot.paramMap.get('idestoque');
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('idproduto');
-    this.produtoDeManutencao = new Produto(null, null, null, Number(this.idEstoque));
+    this.produtoDeManutencao = new Produto();
+    
+    if (this.idEstoque) {
+      this.produtoDeManutencao.fk_estoque = this.idEstoque;
+    }
     
     if (idParaEdicao) {
       this.produtoService.encontrar(idParaEdicao).subscribe(
@@ -38,7 +42,12 @@ export class CadastroProdutoComponent {
   }
 
   manterAux(): void {
-    this.produtoDeManutencao = new Produto(null, null, null, Number(this.idEstoque));
+    this.produtoDeManutencao = new Produto();
+
+    if (this.idEstoque) {
+      this.produtoDeManutencao.fk_estoque = this.idEstoque;
+    }
+
     this.nomeBotaoManutencao = 'Cadastrar';
     this.roteador.navigate(['listagemproduto', this.idEstoque]);
   }
