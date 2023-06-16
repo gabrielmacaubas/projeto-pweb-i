@@ -1,5 +1,3 @@
-import { Produto } from "./produto";
-
 export class Estoque {
     nome: string | null;
     capacidade: number | null;

@@ -12,18 +12,10 @@ export class ProdutoService {
   
   constructor(private httpClient: HttpClient) { }
 
-  /*
-  listar(): Observable<Produto[]> {
-    return this.httpClient.get<Produto[]>(this.URL_PRODUTOS);
-  }
-  */
-  
-
   encontrar(idParaEdicao: string): Observable<Produto> {
     return this.httpClient.get<Produto>(`${this.URL_PRODUTOS}/${idParaEdicao}`);
   }
   
-
   encontrarPorEstoque(fk_estoque: string): Observable<Produto[]> {
     return this.httpClient.get<Produto[]>(`${this.URL_PRODUTOS}?fk_estoque=${fk_estoque}`);
   }
