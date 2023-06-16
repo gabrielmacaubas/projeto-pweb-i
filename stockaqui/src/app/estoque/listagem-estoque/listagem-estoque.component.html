@@ -11,9 +11,11 @@
     </mat-card-header>
     <mat-card-content [routerLink]="['/listagemproduto/', estoque.id]">
       <p>{{ estoque.descricao }}</p>
-      <mat-divider></mat-divider>
+      
     </mat-card-content>
+    <mat-divider></mat-divider>
     <mat-card-actions>
+      
       <button mat-icon-button [routerLink]="['/editaestoque', estoque.id]">
         <mat-icon color="primary">edit</mat-icon>
       </button>
