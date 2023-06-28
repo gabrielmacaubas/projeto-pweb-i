@@ -21,10 +21,26 @@ export class EstoqueService {
     return this.colecaoEstoques.valueChanges({idField: 'id'});
   }
 
+  estoquesCheios(): Observable<Estoque[]> {
+    let estoquesCheios: number;
+    
+    return from(
+      this.colecaoEstoques.ref.get()
+        .then((snapshot) => {
+            return snapshot.docs
+              .map((doc) => {
+                const data = doc.data() as Estoque;
+                const id = doc.id;
+                return { id, ...data };
+              })
+            .filter((estoque => estoque.capacidade === estoque.ocupacao));
+        })
+    );
+  }
+
   encontrar(idParaEdicao: string): Observable<Estoque> {
     return this.colecaoEstoques.doc(idParaEdicao).get().pipe(map(
       document => {
-        console.log(document.data());
         return new Estoque(document.id, document.data());
       }
     ));

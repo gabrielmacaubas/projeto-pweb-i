@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 import { EstoqueService } from './shared/services/estoque.service';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     HttpClientModule,
     FirestoreModule,
+    MatBadgeModule,
+    ProdutoModule,
+    MatMenuModule
   ],
   providers: [
     EstoqueService,

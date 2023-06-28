@@ -37,7 +37,6 @@ export class ProdutoService {
       estoque => {
         if (estoque.ocupacao != undefined) {
           if (aumentar) {
-            console.log(estoque.ocupacao);
             estoque.ocupacao = estoque.ocupacao + 1;
             
             this.estoqueService.atualizar(estoque).subscribe(

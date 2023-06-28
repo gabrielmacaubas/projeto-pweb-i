@@ -43,6 +43,8 @@ export class CadastroEstoqueComponent {
   }
       
   manter(): void {
+    this.estoqueDeManutencao.capacidade = Number(this.estoqueDeManutencao.capacidade)
+    
     if (this.estahCadastrando && this.estoqueDeManutencao) {
       this.estoqueService.inserir(this.estoqueDeManutencao).subscribe(
         retorno => {
