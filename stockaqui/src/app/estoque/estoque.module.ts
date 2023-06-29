@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CadastroEstoqueComponent } from './cadastro-estoque/cadastro-estoque.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from "@angular/material/icon";
-import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
-import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterLink } from '@angular/router';
+
+import { CadastroEstoqueComponent } from './cadastro-estoque/cadastro-estoque.component';
+import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.component';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     FormsModule,
     MatInputModule,
-    RouterLink
+    RouterLink,
+    MatSnackBarModule
   ]
 })
 export class EstoqueModule { }

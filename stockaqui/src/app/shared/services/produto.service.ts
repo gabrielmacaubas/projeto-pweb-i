@@ -1,9 +1,12 @@
-import { Injectable, Query } from '@angular/core';
-import {from, Observable} from 'rxjs';
-import { Produto } from '../model/produto';
-import { EstoqueService } from './estoque.service';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {map} from 'rxjs/operators';
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+
+import { Produto } from 'src/app/shared/model/produto';
+import { EstoqueService } from 'src/app/shared/services/estoque.service';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +67,6 @@ export class ProdutoService {
       }
     }
 
-    alert("Produto Inválido!");
     return new Observable<Produto>(observer => observer.error(new Error('Produto inválido!')));
   }
 
@@ -81,7 +83,6 @@ export class ProdutoService {
       return from(this.colecaoProdutos.doc(produtoRemovido.id).delete());
     }
 
-    alert("Erro ao excluir!");
     return new Observable<void>(observer => observer.error(new Error('Produto inválido!')));
   }
   

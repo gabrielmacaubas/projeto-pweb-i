@@ -1,8 +1,10 @@
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import {from, Observable} from 'rxjs';
-import { Estoque } from '../model/estoque';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/compat/firestore';
-import {map} from 'rxjs/operators';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+
+import { Estoque } from 'src/app/shared/model/estoque';
+import { MensagemService } from 'src/app/shared/services/mensagem.service';
 
 
 @Injectable({
@@ -13,7 +15,7 @@ export class EstoqueService {
   colecaoEstoques: AngularFirestoreCollection<Estoque>;
   NOME_COLECAO = 'estoques';
   
-  constructor(private afs: AngularFirestore) { 
+  constructor(private afs: AngularFirestore, private mensagemService: MensagemService) { 
     this.colecaoEstoques = afs.collection(this.NOME_COLECAO);
   }
 
@@ -55,7 +57,7 @@ export class EstoqueService {
       }
     }
     
-    alert("Estoque Inválido!");
+    this.mensagemService.error('Estoque inválido!');
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
   }
 
@@ -71,7 +73,6 @@ export class EstoqueService {
       return from(this.colecaoEstoques.doc(estoqueRemovido.id).delete());
     }
 
-    alert("Erro ao excluir!");
     return new Observable<void>(observer => observer.error(new Error('Estoque inválido!')));
   }
 }
