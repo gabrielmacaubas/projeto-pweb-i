@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Produto } from '../../shared/model/produto';
-import { ProdutoService } from 'src/app/shared/services/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Produto } from 'src/app/shared/model/produto';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
+import { MensagemService } from 'src/app/shared/services/mensagem.service';
 
 
 @Component({
@@ -16,7 +18,8 @@ export class CadastroProdutoComponent {
   idEstoque: string | null;
 
 
-  constructor(private rotaAtual: ActivatedRoute, private roteador: Router, private produtoService: ProdutoService) {
+  constructor(private rotaAtual: ActivatedRoute, private roteador: Router, 
+              private produtoService: ProdutoService,  private mensagemService: MensagemService) {
     this.idEstoque = this.rotaAtual.snapshot.paramMap.get('idestoque');
     const idParaEdicao = this.rotaAtual.snapshot.paramMap.get('idproduto');
     this.produtoDeManutencao = new Produto();
@@ -56,12 +59,14 @@ export class CadastroProdutoComponent {
     if (this.estahCadastrando && this.produtoDeManutencao) {
       this.produtoService.inserir(this.produtoDeManutencao).subscribe(
         retorno => {
+          this.mensagemService.success(`Produto '${this.produtoDeManutencao.nome}' cadastrado com sucesso!`);
           this.manterAux();
         }
       );
     } else {
       this.produtoService.atualizar(this.produtoDeManutencao).subscribe(
         retorno => {
+          this.mensagemService.success(`Produto '${this.produtoDeManutencao.nome}' atualizado com sucesso!`);
           this.manterAux();
         }
       );

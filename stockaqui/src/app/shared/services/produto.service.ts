@@ -5,7 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 
 import { Produto } from 'src/app/shared/model/produto';
 import { EstoqueService } from 'src/app/shared/services/estoque.service';
-
+import { MensagemService } from 'src/app/shared/services/mensagem.service';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ProdutoService {
   colecaoProdutos: AngularFirestoreCollection<Produto>;
   NOME_COLECAO = 'produtos';
   
-  constructor(private afs: AngularFirestore, private estoqueService: EstoqueService) {
+  constructor(private afs: AngularFirestore, private estoqueService: EstoqueService, private mensagemService: MensagemService) {
     this.colecaoProdutos = afs.collection(this.NOME_COLECAO);
   }
 
@@ -67,6 +67,7 @@ export class ProdutoService {
       }
     }
 
+    this.mensagemService.error('Estoque inválido!');
     return new Observable<Produto>(observer => observer.error(new Error('Produto inválido!')));
   }
 

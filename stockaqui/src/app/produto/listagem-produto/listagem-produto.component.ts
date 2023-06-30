@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Produto } from '../../shared/model/produto';
-import { ProdutoService } from 'src/app/shared/services/produto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Produto } from 'src/app/shared/model/produto';
+import { MensagemService } from 'src/app/shared/services/mensagem.service';
+import { ProdutoService } from 'src/app/shared/services/produto.service';
+
 
 @Component({
   selector: 'app-listagem-produto',
   templateUrl: './listagem-produto.component.html',
   styleUrls: ['./listagem-produto.component.css']
 })
-
-
 export class ListagemProdutoComponent implements OnInit {
   dataSource: MatTableDataSource<Produto>;
   mostrarColunas = ['nome', 'valor', 'descricao', 'acoes'];
 
-  constructor(private produtoService: ProdutoService, private rotaAtual: ActivatedRoute, private roteador: Router) {
+  constructor(private produtoService: ProdutoService, private rotaAtual: ActivatedRoute, 
+              private roteador: Router, private mensagemService: MensagemService) {
     this.dataSource = new MatTableDataSource();
   }
 
@@ -48,6 +50,7 @@ export class ListagemProdutoComponent implements OnInit {
           this.dataSource.data.splice(indxEstoqueARemover, 1);
           this.dataSource = new MatTableDataSource<Produto>(this.dataSource.data);
         }
+        this.mensagemService.info(`Produto '${produtoRemovido.nome}' removido`);
       }
     )
   }
