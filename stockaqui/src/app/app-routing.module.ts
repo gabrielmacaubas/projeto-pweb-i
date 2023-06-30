@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroEstoqueComponent } from './estoque/cadastro-estoque/cadastro-estoque.component';
-import { CadastroProdutoComponent } from './produto/cadastro-produto/cadastro-produto.component';
-import { ListagemEstoqueComponent } from './estoque/listagem-estoque/listagem-estoque.component';
-import { ListagemProdutoComponent } from './produto/listagem-produto/listagem-produto.component';
-import { HomeComponent } from './layout/home/home.component';
+
+import { CadastroEstoqueComponent } from 'src/app/estoque/cadastro-estoque/cadastro-estoque.component';
+import { CadastroProdutoComponent } from 'src/app/produto/cadastro-produto/cadastro-produto.component';
+import { ListagemEstoqueComponent } from 'src/app/estoque/listagem-estoque/listagem-estoque.component';
+import { ListagemProdutoComponent } from 'src/app/produto/listagem-produto/listagem-produto.component';
+import { HomeComponent } from 'src/app/layout/home/home.component';
+import { AccountComponent } from 'src/app/layout/account/account.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,10 @@ const routes: Routes = [
   {
     path: 'listagemproduto/:idestoque/editaproduto/:idproduto',
     component: CadastroProdutoComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
   }
 ];
 

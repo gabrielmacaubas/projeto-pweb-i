@@ -17,7 +17,7 @@
     <mat-menu #menu="matMenu">
       <button mat-menu-item><strong>Você possui {{estoquesCheios}} estoque(s) cheio(s)!</strong></button>
     </mat-menu>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" [routerLink]="['account']">
       <mat-icon>account_circle</mat-icon>
     </button>
   </mat-toolbar>

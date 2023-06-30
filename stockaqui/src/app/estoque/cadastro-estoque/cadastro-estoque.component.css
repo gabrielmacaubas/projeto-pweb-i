@@ -5,6 +5,8 @@ mat-form-field {
 .example-card {
     max-width: 260px;
     margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .example-spacer {

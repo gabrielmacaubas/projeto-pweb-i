@@ -1,5 +1,7 @@
 mat-table {
     width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 mat-form-field {
