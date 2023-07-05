@@ -1,4 +1,5 @@
 import { from, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
@@ -14,8 +15,9 @@ import { MensagemService } from 'src/app/shared/services/mensagem.service';
 export class EstoqueService {
   colecaoEstoques: AngularFirestoreCollection<Estoque>;
   NOME_COLECAO = 'estoques';
+  URL_ESTOQUES = 'http://localhost:8080/estoques';
   
-  constructor(private afs: AngularFirestore, private mensagemService: MensagemService) { 
+  constructor(private afs: AngularFirestore, private mensagemService: MensagemService, private httpClient: HttpClient) { 
     this.colecaoEstoques = afs.collection(this.NOME_COLECAO);
   }
 
@@ -49,11 +51,9 @@ export class EstoqueService {
   }
 
   inserir(estoque: Estoque): Observable<Object> {
-    delete estoque.id;
-
     if (estoque.nome && estoque.capacidade && estoque.descricao) {
       if (!Number.isNaN(Number(estoque.capacidade)) && Number(estoque.capacidade) > 0) {
-        return from(this.colecaoEstoques.add(Object.assign({}, estoque)));
+        return this.httpClient.post<Estoque>(this.URL_ESTOQUES, estoque);
       }
     }
     
