@@ -16,7 +16,6 @@ export class CadastroEstoqueComponent {
   estahCadastrando = true;
   nomeBotaoManutencao = 'Cadastrar';
 
-
   constructor(private rotaAtual: ActivatedRoute, private roteador: Router, 
               private estoqueService: EstoqueService, private mensagemService: MensagemService) {
     this.estoqueDeManutencao = new Estoque();

@@ -16,6 +16,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatMenuModule } from '@angular/material/menu';
 import { EstoqueService } from './shared/services/estoque.service';
 import { HttpClientModule } from '@angular/common/http';
+import { InterceptorModule } from "./interceptor/interceptor.module";
+import { ReactiveFormsModule } from '@angular/forms';
+import { ProdutoService } from './shared/services/produto.service';
 
 
 @NgModule({
@@ -37,10 +40,13 @@ import { HttpClientModule } from '@angular/common/http';
     FirestoreModule,
     MatBadgeModule,
     ProdutoModule,
-    MatMenuModule
+    MatMenuModule,
+    InterceptorModule,
+    ReactiveFormsModule
   ],
   providers: [
     EstoqueService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })

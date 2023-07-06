@@ -41,7 +41,7 @@ export class ListagemProdutoComponent implements OnInit {
 
   remover(produtoRemovido: Produto): void {
     this.produtoService.remover(produtoRemovido).subscribe(
-      resposta => {
+      () => {
         const indxEstoqueARemover = this.dataSource.data.findIndex(
           produto => produto.id === produtoRemovido.id
         );

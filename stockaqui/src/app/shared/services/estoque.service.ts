@@ -1,8 +1,6 @@
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 import { Estoque } from 'src/app/shared/model/estoque';
 import { MensagemService } from 'src/app/shared/services/mensagem.service';
@@ -13,41 +11,21 @@ import { MensagemService } from 'src/app/shared/services/mensagem.service';
 })
 
 export class EstoqueService {
-  colecaoEstoques: AngularFirestoreCollection<Estoque>;
-  NOME_COLECAO = 'estoques';
   URL_ESTOQUES = 'http://localhost:8080/estoques';
   
-  constructor(private afs: AngularFirestore, private mensagemService: MensagemService, private httpClient: HttpClient) { 
-    this.colecaoEstoques = afs.collection(this.NOME_COLECAO);
+  constructor(private mensagemService: MensagemService, private httpClient: HttpClient) { 
   }
 
   listar(): Observable<Estoque[]> {
-    return this.colecaoEstoques.valueChanges({idField: 'id'});
+    return this.httpClient.get<Estoque[]>(this.URL_ESTOQUES);
   }
 
   estoquesCheios(): Observable<Estoque[]> {
-    let estoquesCheios: number;
-    
-    return from(
-      this.colecaoEstoques.ref.get()
-        .then((snapshot) => {
-            return snapshot.docs
-              .map((doc) => {
-                const data = doc.data() as Estoque;
-                const id = doc.id;
-                return { id, ...data };
-              })
-            .filter((estoque => estoque.capacidade === estoque.ocupacao));
-        })
-    );
+    return this.httpClient.get<Estoque[]>(this.URL_ESTOQUES + "/cheios");
   }
 
   encontrar(idParaEdicao: string): Observable<Estoque> {
-    return this.colecaoEstoques.doc(idParaEdicao).get().pipe(map(
-      document => {
-        return new Estoque(document.id, document.data());
-      }
-    ));
+    return this.httpClient.get<Estoque>(`${this.URL_ESTOQUES}/${idParaEdicao}`)
   }
 
   inserir(estoque: Estoque): Observable<Object> {
@@ -61,18 +39,11 @@ export class EstoqueService {
     return new Observable<Estoque>(observer => observer.error(new Error('Estoque inválido!')));
   }
 
-  atualizar(estoque: Estoque): Observable<void> {
-    const id = estoque.id;
-
-    delete estoque.id;
-    return from(this.colecaoEstoques.doc(id).update(Object.assign({}, estoque)));
+  atualizar(estoque: Estoque): Observable<Estoque> {
+    return this.httpClient.put<Estoque>(`${this.URL_ESTOQUES}/${estoque.id}`, estoque);
   }
 
-  remover(estoqueRemovido: Estoque): Observable<void> {
-    if (estoqueRemovido) {
-      return from(this.colecaoEstoques.doc(estoqueRemovido.id).delete());
-    }
-
-    return new Observable<void>(observer => observer.error(new Error('Estoque inválido!')));
+  remover(id: string): Observable<Estoque> {
+    return this.httpClient.delete<Estoque>(`${this.URL_ESTOQUES}/${id}`)
   }
 }

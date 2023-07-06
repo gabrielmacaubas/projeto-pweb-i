@@ -33,7 +33,7 @@ import { ListagemEstoqueComponent } from './listagem-estoque/listagem-estoque.co
     FormsModule,
     MatInputModule,
     RouterLink,
-    MatSnackBarModule
+    MatSnackBarModule,
   ]
 })
 export class EstoqueModule { }

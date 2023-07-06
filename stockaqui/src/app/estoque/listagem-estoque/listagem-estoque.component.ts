@@ -26,14 +26,16 @@ export class ListagemEstoqueComponent {
   }
 
   remover(estoqueRemovido: Estoque): void {
-    this.estoqueService.remover(estoqueRemovido).subscribe(
-      resposta => {
-        const indxEstoqueARemover = this.estoques.findIndex(estoque => estoque.id === estoqueRemovido.id);
-        if (indxEstoqueARemover > -1) {
-          this.estoques.splice(indxEstoqueARemover, 1)
+    if (estoqueRemovido.id) {
+      this.estoqueService.remover(estoqueRemovido.id).subscribe(
+        () => {
+          const indxEstoqueARemover = this.estoques.findIndex(estoque => estoque.id === estoqueRemovido.id);
+          if (indxEstoqueARemover > -1) {
+            this.estoques.splice(indxEstoqueARemover, 1)
+          }
+          this.mensagemService.info(`Estoque '${estoqueRemovido.nome}' removido`);
         }
-        this.mensagemService.info(`Estoque '${estoqueRemovido.nome}' removido`);
-      }
-    );
+      );
+    }
   }
 }
