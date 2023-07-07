@@ -7,17 +7,19 @@
         <mat-card-title>Login</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="joao@gmail.com" type="email" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Senha</mat-label>
-          <input matInput type="password" required>
-        </mat-form-field>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="joao@gmail.com" type="email" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input matInput type="password" formControlName="senha" required>
+          </mat-form-field>
+        </form>
       </mat-card-content>
       <mat-card-actions class="button-account">
-        <button mat-button mat-raised-button style="margin:10px" color="primary">
+        <button mat-button mat-raised-button style="margin:10px" color="primary" [disabled]="!loginForm.valid">
           <span>Entrar</span>
         </button>
       </mat-card-actions>
@@ -27,21 +29,23 @@
         <mat-card-title>Cadastro</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="joao@gmail.com" type="email" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Digite sua senha</mat-label>
-          <input matInput type="password" required>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Digite sua senha novamente</mat-label>
-          <input matInput type="password" required>
-        </mat-form-field>
+        <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="joao@gmail.com" type="email" formControlName="email" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Digite sua senha</mat-label>
+            <input matInput type="password" formControlName="senha1" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Digite sua senha novamente</mat-label>
+            <input matInput type="password" formControlName="senha2" required>
+          </mat-form-field>
+        </form>
       </mat-card-content>
       <mat-card-actions class="button-account">
-        <button mat-button mat-raised-button style="margin:10px" color="primary">
+        <button mat-button mat-raised-button style="margin:10px" color="primary" [disabled]="!cadastroForm.valid">
           <span>Cadastrar</span>
         </button>
       </mat-card-actions>

@@ -15,6 +15,7 @@ import { EstoqueModule } from '../estoque/estoque.module';
 import { RouterLink } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { AccountComponent } from './account/account.component';
     SidebarComponent,
     FooterComponent,
     HomeComponent,
-    AccountComponent
+    AccountComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,8 @@ import { AccountComponent } from './account/account.component';
     EstoqueModule,
     RouterLink,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [
     SidebarComponent,
